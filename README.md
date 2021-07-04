@@ -12,6 +12,23 @@
 npm ci
 ```
 
+### ビルドして結果を確認する
+
+```sh
+npm run build
+npm run serve
+```
+
+`Ctrl + C` で中止します。
+
+### 実装のために、ホットコード プッシュ環境を作成する
+
+```sh
+npm start
+```
+
+`Ctrl + C` で中止します。
+
 ### Linting
 
 ```sh
