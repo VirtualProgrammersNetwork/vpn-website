@@ -12,6 +12,14 @@
   "license": "Apache-2.0",
   "author": "VirtualProgrammersNetwork",
   "repository": "github:VirtualProgrammersNetwork/vpn-website",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.0.0",
+    "@commitlint/config-conventional": "^13.0.0",
+    "husky": "^7.0.0"
+  },
   "engines": {
     "node": ">=16",
     "npm": ">=7"
