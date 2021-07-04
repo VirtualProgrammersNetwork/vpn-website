@@ -1,0 +1,49 @@
+env:
+  es6: true
+  es2020: true
+extends:
+  # TODO: この辺のベストプラクティスはどうなのでしょう。。
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:react-hooks/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended
+  - airbnb-typescript
+  - plugin:prettier/recommended
+overrides:
+  - files:
+      - '*.js'
+    rules:
+      # JavaScript ファイルは主に設定ファイルなど、トランスパイル範囲外の
+      # 用途が多く、`require()` 構文は認める。
+      '@typescript-eslint/no-var-requires': 'off'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2020
+  project: ./tsconfig.json
+root: true
+rules:
+  # devDependencies への依存は設定系のスクリプトのみ使用できるようにする。
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies:
+        - '**/*.config.?s'
+  # import 部分が絶対カオスになるので、整理のために。
+  import/order: warn
+  # React 17 以降は、`React` のインポートは不要。
+  # https://ja.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+  react/jsx-uses-react: 'off'
+  # TypeScript プロジェクトかつライブラリでない場合、
+  # 動的な型制約要らない気がします。。
+  react/prop-types: 'off'
+  # React 17 以降は、`React` のインポートは不要。
+  # https://ja.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+  react/react-in-jsx-scope: 'off'
+  # import 部分が絶対カオスになるので、整理のために。
+  # import/order と競合する場合、import/order を優先する。
+  sort-imports: warn
+settings:
+  import/resolver:
+    typescript:
+      alwaysTryTypes: true

@@ -12,6 +12,12 @@
 npm ci
 ```
 
+### Linting
+
+```sh
+npm run lint
+```
+
 ### コミットについて
 
 試験的に[コミット文の検証(Conventional Commits)](https://www.conventionalcommits.org/ja/v1.0.0/)
