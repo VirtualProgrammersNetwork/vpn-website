@@ -1,0 +1,20 @@
+{
+  "name": "@virtual-programmers-network/vpn-website",
+  "version": "0.1.0",
+  "description": "Virtual Programmer's Network official website",
+  "keywords": [
+    "virtual-begings",
+    "vtuber",
+    "website"
+  ],
+  "homepage": "https://github.com/VirtualProgrammersNetwork/vpn-website#readme",
+  "bugs": "https://github.com/VirtualProgrammersNetwork/vpn-website/issues",
+  "license": "Apache-2.0",
+  "author": "VirtualProgrammersNetwork",
+  "repository": "github:VirtualProgrammersNetwork/vpn-website",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  },
+  "private": true
+}
