@@ -58,3 +58,10 @@ npm run lint
 #### 例 2
 
 > fix: fixed a bug that Hoge component cause crash
+
+### CI/CD について
+
+GitHub Actions を使用した CI/CD を導入しています。
+
+- `main` ブランチに push した場合、ビルドして `out` フォルダを `gh-pages` ブランチへ push します。
+- 他のブランチに push した場合、ビルド・Lint を行います。

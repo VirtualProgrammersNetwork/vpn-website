@@ -1,0 +1,44 @@
+name: main ブランチに push した際の CI/CD 処理
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version:
+          - '16.x'
+        cache-key:
+          - '2452e5b7-1be0-123a-a07f-6ce36d87e609'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Node.js ${{ matrix.node-version }} を使用します
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm config set unsafe-perm true
+      - name: npm のキャッシュ フォルダを取得します
+        id: npm-cache
+        run: echo "::set-output name=dir::$(npm config get cache)"
+      - name: npm のキャッシュを復元します
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ matrix.cache-key }}_${{ runner.os }}-node_v${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ matrix.cache-key }}_${{ runner.os }}-node_v${{ matrix.node-version }}-
+            ${{ matrix.cache-key }}_${{ runner.os }}-node_v
+            ${{ matrix.cache-key }}_${{ runner.os }}-node-
+            ${{ matrix.cache-key }}_${{ runner.os }}-
+      - run: npm ci
+      - run: npm run build
+        env:
+          CI: true
+      - name: ビルド結果を GitHub Pages へ配置します。
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
