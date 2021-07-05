@@ -22,19 +22,26 @@
     "start": "next dev"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "next": "^11.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "twin.macro": "^2.6.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
     "@commitlint/cli": "^13.0.0",
     "@commitlint/config-conventional": "^13.0.0",
+    "@emotion/babel-plugin": "^11.3.0",
     "@tailwindcss/typography": "^0.4.1",
     "@types/react": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "autoprefixer": "^10.2.6",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-twin": "^1.0.2",
     "browserslist": "^4.16.6",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
