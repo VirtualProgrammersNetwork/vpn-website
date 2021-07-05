@@ -14,7 +14,9 @@
   "repository": "github:VirtualProgrammersNetwork/vpn-website",
   "scripts": {
     "build": "next build && next export",
-    "lint": "eslint --cache --fix .",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint --cache --fix .",
+    "lint:stylelint": "stylelint \"**/*.css\"",
     "prepare": "husky install",
     "serve": "serve out",
     "start": "next dev"
@@ -46,9 +48,15 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.0",
+    "npm-run-all2": "^5.0.2",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
     "serve": "^12.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0",
     "tailwindcss-neumorphism": "^0.1.0",
     "typescript": "^4.3.5"
   },
