@@ -21,6 +21,19 @@ const withTM = require('next-transpile-modules')([
   'unist-util-visit',
   'space-separated-tokens',
   'comma-separated-tokens',
+  // リリースビルド時に必要なやつ
+  'micromark-util-chunked',
+  'micromark-factory-space',
+  'micromark-util-character',
+  'micromark-core-commonmark',
+  'micromark-util-subtokenize',
+  'micromark-factory-destination',
+  'micromark-factory-label',
+  'micromark-factory-title',
+  'micromark-factory-whitespace',
+  'micromark-util-normalize-identifier',
+  'micromark-util-classify-character',
+  'micromark-util-decode-numeric-character-reference',
 ]);
 
 module.exports = withTM(providedExports);
