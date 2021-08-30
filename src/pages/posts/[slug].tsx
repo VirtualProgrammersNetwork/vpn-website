@@ -2,6 +2,7 @@ import ErrorPage from 'next/error';
 import { NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
+// eslint-disable-next-line sort-imports
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
@@ -34,7 +35,15 @@ type Params = {
 };
 
 // Postの引数を作るところ, 自動で呼び出される
-export const getStaticProps = async ({ params }: Params) => {
+type PostProps = Promise<{
+  props: {
+    post: {
+      content: string;
+    };
+  };
+}>;
+
+export const getStaticProps = async ({ params }: Params): PostProps => {
   const post = getPostBySlug(params.slug, [
     'slug',
     'title',
@@ -55,7 +64,16 @@ export const getStaticProps = async ({ params }: Params) => {
 };
 
 // posts以下のpathを作るところ, 自動で呼び出される
-export const getStaticPaths = () => {
+type PostsPath = {
+  paths: {
+    params: {
+      slug: string;
+    };
+  }[];
+  fallback: boolean;
+};
+
+export const getStaticPaths = (): PostsPath => {
   const posts = getAllPosts(['slug']);
 
   return {
