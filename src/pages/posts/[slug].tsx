@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
+import Author from '../../types/author';
 
 type Props = {
   post: PostType;
@@ -38,6 +39,10 @@ type Params = {
 type PostProps = Promise<{
   props: {
     post: {
+      slug?: string;
+      title?: string;
+      author?: Author;
+      tags?: string[];
       content: string;
     };
   };
