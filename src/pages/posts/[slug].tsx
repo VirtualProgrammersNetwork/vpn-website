@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line sort-imports
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
+import Author from '../../types/author';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
 
@@ -38,6 +39,10 @@ type Params = {
 type PostProps = Promise<{
   props: {
     post: {
+      slug?: string;
+      title?: string;
+      author?: Author;
+      tags?: string[];
       content: string;
     };
   };
