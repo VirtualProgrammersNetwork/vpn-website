@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { join } from 'path';
+import matter from 'gray-matter';
 
 type Items = {
   [key: string]: string;
@@ -18,8 +19,7 @@ export const getPostBySlug = (
   const slug = slug_with_exp.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf-8');
-  // 今後fileContentsに対して, front matterのデータを取り出す処理が入る
-  const content = fileContents;
+  const { data: frontMatter, content } = matter(fileContents);
 
   const items: Items = {};
 
@@ -30,6 +30,10 @@ export const getPostBySlug = (
     }
     if (field === 'content') {
       items[field] = content;
+    }
+
+    if (frontMatter[field]) {
+      items[field] = frontMatter[field];
     }
   });
 

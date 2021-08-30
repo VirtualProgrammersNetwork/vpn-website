@@ -1,3 +1,10 @@
+---
+title: テスト投稿
+author:
+  name: 珠響そうき
+tags: ["test", "hoge", "fuga"]
+---
+
 # これは`テスト`です
 
 ## ぷげら

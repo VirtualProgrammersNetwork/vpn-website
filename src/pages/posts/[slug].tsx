@@ -1,14 +1,16 @@
 import ErrorPage from 'next/error';
+import { NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
+import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
 
 type Props = {
   post: PostType;
 };
 
-const Post = ({ post }: Props): JSX.Element => {
+const Post: NextPage<Props> = ({ post }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -17,6 +19,7 @@ const Post = ({ post }: Props): JSX.Element => {
 
   return (
     <main tw="prose">
+      <PostHeader title={post.title} author={post.author} tags={post.tags} />
       <ReactMarkdown>{content}</ReactMarkdown>
     </main>
   );
@@ -32,7 +35,13 @@ type Params = {
 
 // Postの引数を作るところ, 自動で呼び出される
 export const getStaticProps = async ({ params }: Params) => {
-  const post = getPostBySlug(params.slug, ['slug', 'content']);
+  const post = getPostBySlug(params.slug, [
+    'slug',
+    'title',
+    'author',
+    'tags',
+    'content',
+  ]);
   const { content } = post;
 
   return {
