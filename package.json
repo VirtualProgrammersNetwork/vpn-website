@@ -13,13 +13,15 @@
   "author": "VirtualProgrammersNetwork",
   "repository": "github:VirtualProgrammersNetwork/vpn-website",
   "scripts": {
-    "build": "next build && next export",
+    "build": "npm run rsrc:clone || next build && next start",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --cache --fix .",
     "lint:stylelint": "stylelint \"**/*.css\"",
     "prepare": "husky install",
     "serve": "serve out",
-    "start": "next dev"
+    "start": "next dev",
+    "rsrc:clone": "git clone https://github.com/VirtualProgrammersNetwork/vpn-website-resource.git && cp vpn-website-resource/public .",
+    "rsrc:pull": "cd vpn-website-resource && git pull && cd ../ && cp -r vpn-website-resource/public ."
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",

@@ -7,6 +7,8 @@ tags: ["test", "hoge", "fuga"]
 
 # これは`テスト`です
 
+![画像1](/author-icons/tamayurasouki.png)
+
 ## ぷげら
 
 つまりこういうことって**わけ**
