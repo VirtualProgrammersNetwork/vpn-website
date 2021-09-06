@@ -13,7 +13,7 @@
   "author": "VirtualProgrammersNetwork",
   "repository": "github:VirtualProgrammersNetwork/vpn-website",
   "scripts": {
-    "build": "npm run rsrc:clone || next build && next start",
+    "build": "npm run rsrc:clone || next build && next export",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --cache --fix .",
     "lint:stylelint": "stylelint \"**/*.css\"",

@@ -1,15 +1,32 @@
 import ErrorPage from 'next/error';
 import { NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
+import { ReactMarkdownProps } from 'react-markdown/lib/complex-types';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line sort-imports
+import { ClassAttributes, ImgHTMLAttributes } from 'react';
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
 import Author from '../../types/author';
+import Img from '../../components/image';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
 
 type Props = {
   post: PostType;
+};
+
+type ImgProps = ClassAttributes<HTMLImageElement> &
+  ImgHTMLAttributes<HTMLImageElement> &
+  ReactMarkdownProps;
+
+const MarkdownImg: React.FC<ImgProps> = ({
+  src,
+  alt = 'no img',
+  width,
+  height,
+}) => {
+  if (!src) return <></>;
+  return <Img src={src} alt={alt} width={width} height={height} />;
 };
 
 const Post: NextPage<Props> = ({ post }: Props) => {
@@ -22,7 +39,7 @@ const Post: NextPage<Props> = ({ post }: Props) => {
   return (
     <main tw="prose">
       <PostHeader title={post.title} author={post.author} tags={post.tags} />
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown components={{ img: MarkdownImg }}>{content}</ReactMarkdown>
     </main>
   );
 };
