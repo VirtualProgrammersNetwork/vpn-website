@@ -11,10 +11,7 @@ import Img from '../../components/image';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
 
-type Props = {
-  post: PostType;
-};
-
+// react markdown用に独自のimgタグを定義
 type ImgProps = ClassAttributes<HTMLImageElement> &
   ImgHTMLAttributes<HTMLImageElement> &
   ReactMarkdownProps;
@@ -27,6 +24,11 @@ const MarkdownImg: React.FC<ImgProps> = ({
 }) => {
   if (!src) return <></>;
   return <Img src={src} alt={alt} width={width} height={height} />;
+};
+
+// マークダウンページ
+type Props = {
+  post: PostType;
 };
 
 const Post: NextPage<Props> = ({ post }: Props) => {

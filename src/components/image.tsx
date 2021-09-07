@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 type Props = {
+  // src: /public/hoge/fuga.png -> /hoge/fuga.png と指定
   src: string;
   alt: string;
   width: string | number | undefined;
