@@ -1,7 +1,6 @@
 ---
 title: これはテスト投稿ですこれはテスト投稿ですこれはテスト投稿です
-author:
-  name: 珠響そうき
+authorId: tamayurasouki
 tags: ["test", "hoge", "fuga", "piyo", "aaaa", "aaaaaaaaaaaaaaaa"]
 ---
 

@@ -82,7 +82,7 @@ export const getStaticProps = async ({ params }: Params): PostProps => {
     props: {
       post: {
         ...post,
-        content,
+        content: content || '',
       },
     },
   };
@@ -105,7 +105,7 @@ export const getStaticPaths = (): PostsPath => {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post.slug || '',
         },
       };
     }),
