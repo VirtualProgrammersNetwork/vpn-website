@@ -1,4 +1,6 @@
 import Link from 'next/link';
+// eslint-disable-next-line sort-imports
+import AuthorElement from '../author';
 import PostType from '../../types/post';
 import Section from './section';
 import Tags from '../tags';
@@ -8,7 +10,7 @@ const PostSummaryCard = ({ postData }: { postData: PostType }): JSX.Element => (
     <div className="flex flex-col border-2 rounded-xl cursor-pointer hover:bg-gray-200">
       <div className="m-2">
         <div className="text-xl">{postData.title}</div>
-        <div className="min-w-max">by {postData.author.name}</div>
+        <AuthorElement author={postData.author} />
       </div>
       <Tags tags={postData.tags} />
     </div>
