@@ -8,6 +8,7 @@ import { ClassAttributes, ImgHTMLAttributes } from 'react';
 import { getAllPosts, getPostBySlug } from '../../lib/posts-utils';
 import Author from '../../types/author';
 import Img from '../../components/image';
+import Layout from '../../components/layout/layout';
 import PostHeader from '../../components/post-header';
 import PostType from '../../types/post';
 
@@ -39,10 +40,10 @@ const Post: NextPage<Props> = ({ post }: Props) => {
   const { content } = post;
 
   return (
-    <main tw="prose">
+    <Layout title={post.title}>
       <PostHeader title={post.title} author={post.author} tags={post.tags} />
       <ReactMarkdown components={{ img: MarkdownImg }}>{content}</ReactMarkdown>
-    </main>
+    </Layout>
   );
 };
 
