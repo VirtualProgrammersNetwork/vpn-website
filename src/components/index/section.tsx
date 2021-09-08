@@ -13,7 +13,7 @@ const Section = ({
       <h2 className="m-0">
         def <div className="inline text-blue-600">{title}</div>():
       </h2>
-      <div className="pl-16">{checkedChildren}</div>
+      <div className="pl-14">{checkedChildren}</div>
     </div>
   );
 };

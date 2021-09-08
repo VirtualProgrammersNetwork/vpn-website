@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ title, children }) => (
   <>
     <NextSeo title={title} />
     <Header />
-    <main className="max-w-screen-2xl container mx-auto my-2" tw="prose">
+    <main className="max-w-screen-2xl container mx-auto my-2 p-5" tw="prose">
       {children}
     </main>
     <Footer />
