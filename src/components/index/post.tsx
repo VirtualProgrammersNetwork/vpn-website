@@ -10,9 +10,7 @@ const PostSummaryCard = ({ postData }: { postData: PostType }): JSX.Element => (
         <div className="text-xl">{postData.title}</div>
         <div className="min-w-max">by {postData.author.name}</div>
       </div>
-      <div className="flex flex-row justify-between">
-        <Tags tags={postData.tags} />
-      </div>
+      <Tags tags={postData.tags} />
     </div>
   </Link>
 );
