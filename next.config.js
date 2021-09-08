@@ -1,5 +1,15 @@
 /** @type {Partial<import('next/dist/next-server/server/config-shared').NextConfig>} */
-const providedExports = { future: { strictPostcssConfiguration: true } };
+const providedExports = {
+  future: { strictPostcssConfiguration: true },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: 'json',
+      use: 'yaml-loader',
+    });
+    return config;
+  },
+};
 
 /** @type {Partial<import('next/dist/next-server/server/config-shared').NextConfig>} */
 module.exports = providedExports;
