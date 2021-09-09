@@ -1,7 +1,7 @@
 import Author from '../types/author';
 import memberData from './member-data';
 
-const fetchAuthorData = (authorId: string): Author => {
+export const fetchAuthorData = (authorId: string): Author => {
   let authorData: Author = {
     name: authorId,
     iconPath: undefined,
@@ -11,4 +11,6 @@ const fetchAuthorData = (authorId: string): Author => {
   return authorData;
 };
 
-export default fetchAuthorData;
+export const fetchAllAuthorData = (): Author[] => {
+  return Object.keys(memberData).map((memberId) => fetchAuthorData(memberId));
+};

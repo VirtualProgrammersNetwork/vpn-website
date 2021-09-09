@@ -3,7 +3,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 // eslint-disable-next-line sort-imports
 import Author from '../types/author';
-import fetchAuthorData from './data-utils';
+import { fetchAuthorData } from './data-utils';
 
 const postsDirectory = join(process.cwd(), 'src/blog_posts');
 
