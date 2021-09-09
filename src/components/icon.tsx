@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+// eslint-disable-next-line sort-imports
 import Img from './image';
 
 const IconStyle = css`
@@ -11,18 +12,17 @@ const IconStyle = css`
 
 type Props = {
   iconPath: string | undefined;
-  width: string | number;
-  height: string | number;
+  size: string | number;
 };
 
-const Icon = ({ iconPath, width, height }: Props): JSX.Element => {
+const Icon = ({ iconPath, size }: Props): JSX.Element => {
   const icon = iconPath ? (
-    <Img src={iconPath} alt="icon" width={width} height={height} />
+    <Img src={iconPath} alt="icon" width={size} height={size} />
   ) : (
     <div
       css={css`
-        width: ${width}px;
-        height: ${height}px;
+        width: ${size}px;
+        height: ${size}px;
       `}
       className="m-0 rounded-full bg-gray-400"
     >
