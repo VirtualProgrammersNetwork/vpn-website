@@ -37,7 +37,6 @@ jobs:
       - run: npm run build
         env:
           CI: true
-          GITHUB_PAGES: true
       - name: ビルド結果を GitHub Pages へ配置します。
         uses: peaceiris/actions-gh-pages@v3
         with:
