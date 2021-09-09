@@ -1,6 +1,13 @@
+const localDomain = '';
+const productDomain = 'https://virtualprogrammersnetwork.github.io';
+const productPath = '/vpn-website';
+const isProd = process.env.NODE_ENV === 'production';
+const isCI = !!process.env.CI;
+const path = isCI && isProd ? productPath : '';
+const assetPrefix = (isCI && isProd ? productDomain : localDomain) + path;
+
 /** @type {Partial<import('next/dist/next-server/server/config-shared').NextConfig>} */
 const providedExports = {
-  future: { strictPostcssConfiguration: true },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.ya?ml$/,
@@ -9,6 +16,10 @@ const providedExports = {
     });
     return config;
   },
+  assetPrefix,
+  basePath: path,
+  env: { assetPrefix },
+  future: { strictPostcssConfiguration: true },
 };
 
 /** @type {Partial<import('next/dist/next-server/server/config-shared').NextConfig>} */

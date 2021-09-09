@@ -39,4 +39,5 @@ jobs:
       - run: npm run build
         env:
           CI: true
+          GITHUB_PAGES: true
       - run: npm run lint
