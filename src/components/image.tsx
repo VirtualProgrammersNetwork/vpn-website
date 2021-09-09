@@ -12,7 +12,12 @@ type Props = {
 const Img = ({ src, alt, width, height }: Props): JSX.Element => {
   return (
     <picture>
-      <img src={src} alt={alt} width={width} height={height} />
+      <img
+        src={`${process.env.assetPrefix}${src}`}
+        alt={alt}
+        width={width}
+        height={height}
+      />
     </picture>
   );
 };
