@@ -7,7 +7,7 @@ import Tags from '../tags';
 
 const PostSummaryCard = ({ postData }: { postData: PostType }): JSX.Element => (
   <Link href={`/posts/${postData.slug}`} passHref>
-    <div className="flex flex-col border-2 rounded-xl cursor-pointer hover:bg-gray-200">
+    <div className="flex flex-col border-2 rounded-xl cursor-pointer">
       <div className="m-2">
         <div className="text-xl">{postData.title}</div>
         <AuthorElement author={postData.author} />
