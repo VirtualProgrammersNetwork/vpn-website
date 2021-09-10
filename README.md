@@ -65,3 +65,69 @@ GitHub Actions を使用した CI/CD を導入しています。
 
 - `main` ブランチに push した場合、ビルドして `out` フォルダを `gh-pages` ブランチへ push します。
 - 他のブランチに push した場合、ビルド・Lint を行います。
+
+### メンバー情報を追加する方法
+
+メンバー一覧の情報を、`src/data/member-data.yaml`から読み込んでいます。
+
+`member-data.yaml`から読みこんだ情報は、ブログの著者表示(アイコンと名前)にも利用しています。
+
+情報を追加するには以下のような形式で、`member-data.yaml`に追記してください。
+
+例:
+```yaml
+# 内部で使用するID, 他の人と被らない適当な英数字
+tamayurasouki:
+  # Required, 一般的な名前
+  name: "珠響 そうき"
+
+  # Optional, メンバー一覧で表示される名前の読み
+  alphabetName: "Tamayura Souki"
+
+  # Optional, アイコン画像のパス, 詳細は画像のアップロード方法参照
+  # "vpn-website-resource/public/author-icons/tamayurasouki.png"を参照している
+  iconPath: "/author-icons/tamayurasouki.png"
+
+  # Optional, メンバー一覧でタグ形式で表記される
+  favs:
+    - "Python"
+    - "Machine_Learning"
+    - "CS"
+    - "Rust"
+    - "Amateur"
+
+  # Optional, メンバー一覧やブログの著者部分につくリンク
+  homepageUrl: "https://twitter.com/tamayurasouki"
+```
+
+メンバー情報の表示例
+![例](/docs/member-example.jpg)
+
+### 画像をアップロードする方法
+
+画像等の静的リソースは別のリポジトリ、`vpn-website-resource`で管理しています。
+https://github.com/VirtualProgrammersNetwork/vpn-website-resource
+
+`vpn-website-resource`内の`public`以下に適当に配置すれば、ビルド時に自動でリソースとして含まれるようになっています。
+
+`vpn-website-resource/public/author-icons/tamayurasouki.png`
+を参照するには
+`/author-icons/tamayurasouki.png`と指定してください。
+
+### マークダウンブログを投稿する方法
+
+`src/blog_posts/`以下に配置した`.md`ファイルから、`/posts/`以下にページが生成されます。
+
+マークダウンの先頭に、Front Matterで、ブログに関する情報を書く必要があります。
+
+例:
+```yaml
+---
+title: タイトルを書く # Required, ブログのタイトル
+authorId: tamayurasouki # Required, member-data.yamlに記入したID
+tags: ["tag1", "tag2"] # Optional, ブログの内容を表すタグ
+---
+```
+
+ポスト情報の表示例
+![例](docs/post-example.jpg)

@@ -1,13 +1,21 @@
+# 内部で使用するID, 他の人と被らない適当な英数字
 tamayurasouki:
+  # Required, 一般的な名前
   name: "珠響 そうき"
+  # Optional, メンバー一覧で表示される名前の読み
   alphabetName: "Tamayura Souki"
+  # Optional, アイコン画像のパス, 詳細は画像のアップロード方法参照
+  # "vpn-website-resource/public/author-icons/tamayurasouki.png"を参照している
   iconPath: "/author-icons/tamayurasouki.png"
+  # Optional, メンバー一覧でタグ形式で表記される
   favs:
     - "Python"
     - "Machine_Learning"
     - "CS"
     - "Rust"
     - "Amateur"
+  # Optional, メンバー一覧やブログの著者部分につくリンク
   homepageUrl: "https://twitter.com/tamayurasouki"
+
 kuronekito:
   name: "黒音 キト"
