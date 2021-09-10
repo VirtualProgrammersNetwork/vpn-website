@@ -9,17 +9,13 @@ type Props = {
 
 // img elementのラッパー
 // TODO: 画像の最適化等を実装する際に書き換える
-const Img = ({ src, alt, width, height }: Props): JSX.Element => {
-  return (
-    <picture>
-      <img
-        src={`${process.env.assetPrefix}${src}`}
-        alt={alt}
-        width={width}
-        height={height}
-      />
-    </picture>
-  );
-};
+const Img = ({ src, alt, width, height }: Props): JSX.Element => (
+  <img
+    src={`${process.env.assetPrefix}${src}`}
+    alt={alt}
+    width={width}
+    height={height}
+  />
+);
 
 export default Img;

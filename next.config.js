@@ -8,6 +8,14 @@ const assetPrefix = (isCI && isProd ? productDomain : localDomain) + path;
 
 /** @type {Partial<import('next/dist/next-server/server/config-shared').NextConfig>} */
 const providedExports = {
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: 'json',
+      use: 'yaml-loader',
+    });
+    return config;
+  },
   assetPrefix,
   basePath: path,
   env: { assetPrefix },

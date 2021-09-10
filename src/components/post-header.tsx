@@ -1,5 +1,6 @@
 import Author from '../types/author';
-import Img from './image';
+import AuthorElement from './author';
+import Tags from './tags';
 
 type Props = {
   title: string;
@@ -8,21 +9,12 @@ type Props = {
 };
 
 const PostHeader = ({ title, author, tags }: Props): JSX.Element => {
-  const tagIcons = tags.map((tag) => <div key={tag}>{tag}</div>);
   return (
-    <>
+    <div className="border-2 rounded-3xl p-4 my-4">
       <h1>{title}</h1>
-      <div>{tagIcons}</div>
-      <div>
-        <Img
-          src="/author-icons/tamayurasouki.png"
-          alt="icon"
-          width={50}
-          height={50}
-        />
-        {author.name}
-      </div>
-    </>
+      <AuthorElement author={author} />
+      <Tags tags={tags} />
+    </div>
   );
 };
 
