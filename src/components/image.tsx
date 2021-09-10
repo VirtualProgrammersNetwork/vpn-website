@@ -17,4 +17,5 @@ const Img = ({ src, alt, width, height }: Props): JSX.Element => (
     height={height}
   />
 );
+
 export default Img;
