@@ -2,7 +2,9 @@
 
 ## 開発ドキュメント
 
-### システム要件
+ローカルにNode.jsをインストールした環境での開発と、docker-composeでの開発が可能です。
+
+### システム要件(ローカル開発環境)
 
 - 最新の Node.js v16 が動作する環境
 
@@ -28,6 +30,18 @@ npm start
 ```
 
 `Ctrl + C` で中止します。
+
+### システム要件(docker-compose環境)
+
+- 最新のdocker-composeが動作する環境
+
+### 実行方法
+
+以下のコマンドを実行後、[http://localhost:3000]にアクセスします。
+
+```
+doocker-compose up
+```
 
 ### Linting
 
