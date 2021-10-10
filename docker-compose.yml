@@ -1,0 +1,9 @@
+version: '3'
+services: 
+    vpn-website:
+        build: .
+        volumes:
+            - "./src:/vpn-website/src"
+        ports:
+            - "3000:3000"
+            - "5000:5000"
