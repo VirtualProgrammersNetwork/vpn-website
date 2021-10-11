@@ -19,3 +19,13 @@ tamayurasouki:
 
 kuronekito:
   name: "黒音 キト"
+
+KasuyaMofu:
+  name: "糟屋もふ"
+  alphabetName: "Mofu Kasuya"
+  iconPath: "/author-icons/KasuyaMofu.png"
+  favs:
+    - "CS"
+    - "RHEL"
+    - "Audio"
+  homepageUrl: "https://kasuyamofu.net"
