@@ -14,7 +14,7 @@
 - ドキュメントの誤字脱字等の修正
 - `src/blog_posts/`以下にあるブログファイルの変更
 
-参考: #22
+参考: [mainブランチで作業したい #22](https://github.com/VirtualProgrammersNetwork/vpn-website/issues/22)
 
 ### システム要件(ローカル開発環境)
 
