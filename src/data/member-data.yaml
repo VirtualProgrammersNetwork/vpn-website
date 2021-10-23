@@ -29,3 +29,11 @@ KasuyaMofu:
     - "RHEL"
     - "Audio"
   homepageUrl: "https://kasuyamofu.net"
+
+bodakosuzu:
+  name: "帽田こすず"
+  alphabetName: "Boda Kosuzu"
+  iconPath: "/author-icons/bodakosuzu.png"
+  favs:
+    - "JavaScript"
+    - "Vue.js"
