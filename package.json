@@ -21,8 +21,8 @@
     "serve": "serve out",
     "start": "npm run rsrc && next dev",
     "rsrc": "npm run rsrc:clone || npm run rsrc:pull",
-    "rsrc:clone": "git clone https://github.com/VirtualProgrammersNetwork/vpn-website-resource.git && cp vpn-website-resource/public .",
-    "rsrc:pull": "cd vpn-website-resource && git pull && cd ../ && cp -r vpn-website-resource/public ."
+    "rsrc:clone": "git clone https://github.com/VirtualProgrammersNetwork/vpn-website-resource.git && cpx vpn-website-resource/public/** public",
+    "rsrc:pull": "cd vpn-website-resource && git pull && cd ../ && cpx vpn-website-resource/public/** public"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
@@ -50,6 +50,7 @@
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-twin": "^1.0.2",
     "browserslist": "^4.16.6",
+    "cpx": "^1.5.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
