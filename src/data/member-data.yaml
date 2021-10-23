@@ -37,3 +37,14 @@ bodakosuzu:
   favs:
     - "JavaScript"
     - "Vue.js"
+
+Aruta:
+  name: "あるた"
+  alphabetName: "Aruta"
+  iconPath: "/author-icons/Aruta.png"
+  favs:
+    - "PACHISLOT"
+    - "C++"
+    - "C#"
+    - "VBA"
+  homepageUrl: "https://twitter.com/vnew_programmer"
