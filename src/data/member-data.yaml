@@ -37,3 +37,15 @@ bodakosuzu:
   favs:
     - "JavaScript"
     - "Vue.js"
+haruelico:
+  name: "晴栄リコ"
+  alphabetName: "Lico Harue"
+  iconPath: "/author-icons/haruelico.jpg"
+  favs:
+    - Ruby
+    - TypeScript
+    - Web
+    - Container
+    - Go
+    - Flutter
+  homepageUrl: "https://haruelico.github.io/website/"
